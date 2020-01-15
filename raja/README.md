@@ -1,1 +1,1 @@
-# Raja Libraries for Golang
+# Raja Library for Golang
