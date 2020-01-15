@@ -12,20 +12,7 @@ type cord struct {
 	y int
 }
 
-var hold = make(map[int]interface{})
 var successPath = list.New()
-
-func main1() {
-	path := list.New()
-	path.PushBack(&cord{x: 0, y: 0})
-	path.PushBack(&cord{x: 0, y: 1})
-	isCycle(path)
-
-	r := make(map[string]interface{})
-	r["a"] = &cord{x: 9, y: 4}
-
-	fmt.Println(*r["a"].(*cord))
-}
 
 func main() {
 	io := raja.NewIo()
