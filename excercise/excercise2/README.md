@@ -6,5 +6,5 @@ We are given a map of cities connected with each other via cable lines such that
 
 
 # Screen
-
+![alt text](https://github.com/vishwa-vijay/go/raw/master/excercise/excercise2/excercise2.jpg)
 
