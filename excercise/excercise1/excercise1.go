@@ -4,7 +4,7 @@ import (
 	"container/list"
 	"fmt"
 
-	"gitlab.com/vishwavijay.com/smd/raja"
+	"github.com/vishwa-vijay/go/raja"
 )
 
 type cord struct {
