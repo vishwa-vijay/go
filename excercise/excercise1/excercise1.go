@@ -25,36 +25,7 @@ func main() {
 	start := &cord{x: 0, y: 0}
 
 	explore(array, path, start, rows, cols)
-	shortest := rows * cols
-	if successPath.Len() > 0 {
-		fmt.Println("Following are the valid path to reach 9")
-		for e := successPath.Front(); e != nil; e = e.Next() {
-			lp := e.Value.(*list.List)
-			clen := lp.Len()
-			if shortest > clen {
-				shortest = clen
-			}
-			fmt.Print("Steps ", clen, " ")
-			for l := lp.Front(); l != nil; l = l.Next() {
-				fmt.Print(*l.Value.(*cord), "->")
-			}
-			fmt.Println()
-		}
-		fmt.Println("\nShortest path to reach 9 needs ", shortest, "steps")
-		for e := successPath.Front(); e != nil; e = e.Next() {
-			lp := e.Value.(*list.List)
-			clen := lp.Len()
-			if clen == shortest {
-				for l := lp.Front(); l != nil; l = l.Next() {
-					fmt.Print(*l.Value.(*cord), "->")
-				}
-				fmt.Println()
-			}
-		}
-	} else {
-		fmt.Println("There is no way to reach")
-	}
-
+	printPaths(rows * cols)
 }
 
 func explore(array [][]int, path *list.List, position *cord, rows int, cols int) {
@@ -91,4 +62,43 @@ func isCycle(path *list.List) bool {
 		}
 	}
 	return false
+}
+
+func printPaths(shortest int) {
+
+	if successPath.Len() > 0 {
+		fmt.Println("Following are the valid path to reach 9")
+		for e := successPath.Front(); e != nil; e = e.Next() {
+			lp := e.Value.(*list.List)
+			clen := lp.Len() - 1
+			if shortest > clen {
+				shortest = clen
+			}
+			printList(lp)
+		}
+		fmt.Println("\nShortest path to reach 9 needs ", shortest, "steps")
+		for e := successPath.Front(); e != nil; e = e.Next() {
+			lp := e.Value.(*list.List)
+			clen := lp.Len() - 1
+			if clen == shortest {
+				printList(lp)
+			}
+		}
+	} else {
+		fmt.Println("There is no way to reach")
+	}
+}
+
+func printList(lp *list.List) {
+	first := true
+	fmt.Print("Steps ", (lp.Len() - 1), " ")
+	for l := lp.Front(); l != nil; l = l.Next() {
+		if first {
+			first = false
+		} else {
+			fmt.Print("->")
+		}
+		fmt.Print(*l.Value.(*cord))
+	}
+	fmt.Println()
 }
