@@ -43,6 +43,19 @@ func (io *Io) ReadLine() string {
 	return line
 }
 
+//ReadSimpleArray : Reads 1 diamentional array from standard input stream
+func (io *Io) ReadSimpleArray(message string) ([]int, int) {
+	fmt.Println(message)
+	line := strings.Trim(strings.ReplaceAll(io.ReadLine(), "  ", " "), " ")
+	nums := strings.Split(line, " ")
+	length := len(nums)
+	array := make([]int, length)
+	for j := 0; j < length; j++ {
+		array[j], _ = strconv.Atoi(nums[j])
+	}
+	return array, length
+}
+
 //ReadArray : Reads 2 diamentional array from standard input stream
 func (io *Io) ReadArray(message string) ([][]int, int, int) {
 	fmt.Println(message)
