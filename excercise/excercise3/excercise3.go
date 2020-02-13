@@ -9,5 +9,6 @@ import (
 func main() {
 	fmt.Println("Hello there!")
 	io := raja.Io{}
-	io.ReadSimpleArray("Please enter an array")
+	array := io.ReadSimpleArray("Please enter an array")
+	for i, k in array
 }
