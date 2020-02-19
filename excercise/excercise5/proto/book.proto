@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package book;
+
+message GetBookRequest {
+    int64 isbn = 1;
+}
+
+message GetBookResponse {
+    string name = 1;
+}
+
+service BookService {
+    rpc GetBook (GetBookRequest) returns (GetBookResponse) {}
+}
