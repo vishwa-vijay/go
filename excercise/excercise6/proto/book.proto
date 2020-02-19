@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package book;
+
+import "google/protobuf/struct.proto";
+
+message GetBookRequest {
+    int64 isbn = 1;
+}
+
+service BookService {
+    rpc GetBook (GetBookRequest) returns (google.protobuf.Struct) {}
+}
