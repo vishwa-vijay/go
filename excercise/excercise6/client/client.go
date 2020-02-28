@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/golang/protobuf/jsonpb"
 	book "github.com/vishwa-vijay/go/excercise/excercise6/proto"
 	"google.golang.org/grpc"
 )
@@ -27,6 +28,7 @@ func main() {
 	})
 	//data, err := proto.Marshal(response)
 	//data, _ := jsonpb.Marshaler{}.MarshalToString(response.ProtoMessage())
+	jsonpb.MarshalToString(
 	data, _ := json.Marshal(response)
 	fmt.Println(string(data))
 
